@@ -17,7 +17,8 @@ function placeOrder(pizzaName) {
     const selectedPizza = menu.find(item => item.name === pizzaName);
 
     if (!selectedPizza) {
-        console.log("Pizza is not on the menu.");
+        console.error("Pizza is not on the menu.");
+        return;
     }
 
     cashInRegister += selectedPizza.price;
