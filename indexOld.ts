@@ -1,4 +1,10 @@
-const menu = [
+
+type Pizza = {
+    name: string
+    price: number
+}
+
+let menu = [
     { name: "Margherita", price: 8 },
     { name: "Pepperoni", price: 10 },
     { name: "Dominator", price: 10 },
@@ -9,11 +15,11 @@ let cashInRegister = 100;
 let nextOrderId = 1;
 const orderQueue = [];
 
-function addNewPizza(pizzaObj) {
+function addNewPizza(pizzaObj: Pizza) {
     menu.push(pizzaObj);
 }
 
-function placeOrder(pizzaName) {
+function placeOrder(pizzaName: string) {
     const selectedPizza = menu.find(item => item.name === pizzaName);
 
     if (!selectedPizza) {
@@ -28,8 +34,8 @@ function placeOrder(pizzaName) {
     return newOrder;
 }
 
-function completeOrder(orderId) {
-    const order = orderQueue.find(item => item.id === orderId);
+function completeOrder(orderId: number) {
+    const order = orderQueue.find(order => order.id === orderId);
     order.status = "completed";
 
     return order;
@@ -40,7 +46,7 @@ addNewPizza({ name: "Spicy Sausage", price: 8 })
 addNewPizza({ name: "Chicken Bacon Ranch", price: 8 })
 
 placeOrder("Chicken BBQ");
-completeOrder("1");
+completeOrder(1);
 
 console.log("Menu", menu);
 console.log("Cash in register", cashInRegister);
