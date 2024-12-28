@@ -1,46 +1,25 @@
-const menu = [
-    { name: "Margherita", price: 8 },
-    { name: "Pepperoni", price: 10 },
-    { name: "Dominator", price: 10 },
-    { name: "Veggie", price: 9 },
-];
-
-const cashInRegister = 100;
-const orderQueue = [];
-const nextOrderId = 1;
-
-function addNewPizza(pizzaObj) {
-    menu.push(pizzaObj);
-}
-
-function placeOrder(pizzaName) {
-    const selectedPizza = menu.find(item => item.name === pizzaName);
-
-    if (!selectedPizza) {
-        console.log("Pizza is not on the menu.");
+"use strict";
+let myName = "Bob";
+let numberOfWheels = 4;
+let isStudent = false;
+let person1 = {
+    name: "Joe",
+    age: 23,
+    isStudent: true
+};
+let person2 = {
+    name: "Doe",
+    age: 45,
+    isStudent: false,
+    address: {
+        streets: "123 BV",
+        city: "Hilversum",
+        country: "Netherland"
     }
-
-    cashInRegister += selectedPizza.price;
-    const newOrder = { id: nextOrderId++, pizza: selectedPizza, status: "ordered" }
-    orderQueue.push(newOrder);
-
-    return newOrder;
+};
+function displayInfo(person) {
+    var _a;
+    console.log(`${person.name} lives at ${(_a = person.address) === null || _a === void 0 ? void 0 : _a.streets}`);
 }
-
-function completeOrder(orderId) {
-    const order = orderQueue.find(item => item.id === orderId);
-    order.status = "completed";
-
-    return order;
-}
-
-addNewPizza({name: "Chicken BBQ", price: 8})
-addNewPizza({name: "Spicy Sausage", price: 8})
-addNewPizza({name: "Chicken Bacon Ranch", price: 8})
-
-placeOrder("Chicken BBQ");
-completeOrder("1");
-
-console.log("Menu", menu);
-console.log("Cash in register", cashInRegister);
-console.log("Order queue", orderQueue);
+displayInfo(person1);
+let ages = [100, 200, 300];
