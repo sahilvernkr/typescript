@@ -31,3 +31,11 @@ let person2: Person = {
         country: "Netherland"
     }
 }
+
+function displayInfo(person){
+    console.log(`${person.name} lives at ${person.address?.streets}`)
+}
+
+displayInfo(person1)
+
+let ages: number[] = [100, 200, 300]
