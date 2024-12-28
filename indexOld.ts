@@ -1,4 +1,3 @@
-
 type Pizza = {
     name: string
     price: number
@@ -10,7 +9,7 @@ type Order = {
     status: string
 }
 
-let menu = [
+let menu: Pizza[] = [
     { name: "Margherita", price: 8 },
     { name: "Pepperoni", price: 10 },
     { name: "Dominator", price: 10 },
@@ -19,7 +18,7 @@ let menu = [
 
 let cashInRegister = 100;
 let nextOrderId = 1;
-let orderQueue: Order[];
+let orderQueue: Order[] = [];
 
 function addNewPizza(pizzaObj: Pizza) {
     menu.push(pizzaObj);
@@ -60,4 +59,4 @@ completeOrder(1);
 
 console.log("Menu", menu);
 console.log("Cash in register", cashInRegister);
-
+console.log("Order queue", orderQueue);
