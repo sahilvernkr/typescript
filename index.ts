@@ -12,18 +12,13 @@ type Person = {
     name: string
     age: number
     isStudent: boolean
-    address: Address
+    address?: Address
 }
 
 let person1: Person = {
     name: "Joe",
     age: 23,
-    isStudent: true,
-    address:{
-        streets: "123 str",
-        city: "margao",
-        country: "India"
-    }
+    isStudent: true
 }
 
 let person2: Person = {
