@@ -39,3 +39,7 @@ function displayInfo(person: Person){
 displayInfo(person1)
 
 let ages: number[] = [100, 200, 300]
+
+//unions
+type UserRole = "guest" | "member" | "admin"
+let role: UserRole = "guest"
