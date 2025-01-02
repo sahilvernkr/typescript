@@ -11,10 +11,10 @@ type Order = {
 }
 
 let menu: Pizza[] = [
-    { id:1, name: "Margherita", price: 8 },
-    { id:2, name: "Pepperoni", price: 10 },
-    { id:3, name: "Dominator", price: 10 },
-    { id:4, name: "Veggie", price: 9 },
+    { id: 1, name: "Margherita", price: 8 },
+    { id: 2, name: "Pepperoni", price: 10 },
+    { id: 3, name: "Dominator", price: 10 },
+    { id: 4, name: "Veggie", price: 9 },
 ];
 
 let cashInRegister = 100;
@@ -51,9 +51,16 @@ function completeOrder(orderId: number) {
     return order;
 }
 
-addNewPizza({ id:5, name: "Chicken BBQ", price: 8 })
-addNewPizza({ id:6, name: "Spicy Sausage", price: 8 })
-addNewPizza({ id:7, name: "Chicken Bacon Ranch", price: 8 })
+function getPizzaDetail(identifier: number | string) {
+    if (typeof (identifier) === 'number') {
+        return menu.find(item => item.id === identifier)
+    }
+    return menu.find(item => item.name.toLowerCase === identifier.toLowerCase)
+}
+
+addNewPizza({ id: 5, name: "Chicken BBQ", price: 8 })
+addNewPizza({ id: 6, name: "Spicy Sausage", price: 8 })
+addNewPizza({ id: 7, name: "Chicken Bacon Ranch", price: 8 })
 
 placeOrder("Chicken BBQ");
 completeOrder(1);
@@ -61,3 +68,4 @@ completeOrder(1);
 console.log("Menu", menu);
 console.log("Cash in register", cashInRegister);
 console.log("Order queue", orderQueue);
+
