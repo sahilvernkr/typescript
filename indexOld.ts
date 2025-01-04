@@ -51,11 +51,16 @@ function completeOrder(orderId: number) {
     return order;
 }
 
-function getPizzaDetail(identifier: number | string) {
+export function getPizzaDetail(identifier: number | string) {
     if (typeof (identifier) === 'number') {
         return menu.find(item => item.id === identifier)
     }
-    return menu.find(item => item.name.toLowerCase === identifier.toLowerCase)
+    else if (typeof (identifier) === 'string') {
+        return menu.find(item => item.name.toLowerCase === identifier.toLowerCase)
+    }
+    else {
+        throw new TypeError("Parameter `identifier` must be either a  string or number")
+    }
 }
 
 addNewPizza({ id: 5, name: "Chicken BBQ", price: 8 })
