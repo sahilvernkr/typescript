@@ -43,3 +43,7 @@ let ages: number[] = [100, 200, 300]
 //unions
 type UserRole = "guest" | "member" | "admin"
 let role: UserRole = "guest"
+
+//using any will not make typescript any more type strict :p
+let value: any = 1
+value = "hello"
