@@ -21,11 +21,11 @@ let cashInRegister = 100;
 let nextOrderId = 1;
 let orderQueue: Order[] = [];
 
-function addNewPizza(pizzaObj: Pizza) {
+function addNewPizza(pizzaObj: Pizza): void {
     menu.push(pizzaObj);
 }
 
-function placeOrder(pizzaName: string) {
+function placeOrder(pizzaName: string): Order | undefined {
     const selectedPizza = menu.find(item => item.name === pizzaName);
 
     if (!selectedPizza) {
@@ -51,7 +51,7 @@ function completeOrder(orderId: number): Order {
     return order;
 }
 
-export function getPizzaDetail(identifier: number | string) {
+export function getPizzaDetail(identifier: number | string):Pizza | undefined  {
     if (typeof (identifier) === 'number') {
         return menu.find(item => item.id === identifier)
     }
