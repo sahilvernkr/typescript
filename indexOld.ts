@@ -10,11 +10,12 @@ type Order = {
     status: "ordered" | "completed"
 }
 
+let nextPizzaId = 1 ;
 let menu: Pizza[] = [
-    { id: 1, name: "Margherita", price: 8 },
-    { id: 2, name: "Pepperoni", price: 10 },
-    { id: 3, name: "Dominator", price: 10 },
-    { id: 4, name: "Veggie", price: 9 },
+    { id: nextPizzaId++, name: "Margherita", price: 8 },
+    { id: nextPizzaId++, name: "Pepperoni", price: 10 },
+    { id: nextPizzaId++, name: "Dominator", price: 10 },
+    { id: nextPizzaId++, name: "Veggie", price: 9 },
 ];
 
 let cashInRegister = 100;
@@ -22,6 +23,7 @@ let nextOrderId = 1;
 let orderQueue: Order[] = [];
 
 function addNewPizza(pizzaObj: Pizza): void {
+    pizzaObj.id = nextPizzaId++;
     menu.push(pizzaObj);
 }
 
@@ -63,9 +65,9 @@ export function getPizzaDetail(identifier: number | string):Pizza | undefined  {
     }
 }
 
-addNewPizza({ id: 5, name: "Chicken BBQ", price: 8 })
-addNewPizza({ id: 6, name: "Spicy Sausage", price: 8 })
-addNewPizza({ id: 7, name: "Chicken Bacon Ranch", price: 8 })
+addNewPizza({ name: "Chicken BBQ", price: 8 })
+addNewPizza({ name: "Spicy Sausage", price: 8 })
+addNewPizza({ name: "Chicken Bacon Ranch", price: 8 })
 
 placeOrder("Chicken BBQ");
 completeOrder(1);
