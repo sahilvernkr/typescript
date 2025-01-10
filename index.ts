@@ -48,3 +48,11 @@ let role: UserRole = "guest"
 let value: any = 1
 value = "hello"
 
+//generics
+const gameScore = [12,43,23,56,23]
+
+function getLastItem<Type>(array: Type[]): Type | undefined{
+    return array[array.length - 1]
+}
+
+console.log(getLastItem(gameScore))
